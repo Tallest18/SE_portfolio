@@ -1,0 +1,247 @@
+{
+  "site": {
+    "name": "Blessing Aighangbe",
+    "role": "Osayande",
+    "title": "Frontend-Focused Full Stack & Mobile Engineer",
+    "location": "Lagos, Nigeria",
+    "email": "baighangbe@gmail.com",
+    "phone": "+234 903 066 9440",
+    "links": {
+      "github": "",
+      "linkedin": "",
+      "portfolio": "",
+      "playstore": ""
+    },
+    "availability": "Open to full-time & contract roles",
+    "resumeUrl": ""
+  },
+  "hero": {
+    "eyebrow": "// blessing-aighangbe.dev",
+    "roles": [
+      "React & React Native Engineer",
+      "Flutter Developer",
+      "Full Stack Systems Builder",
+      "Frontend Architect"
+    ],
+    "headline": "I build interfaces that ship, scale, and stay up.",
+    "subheadline": "Frontend-focused full stack & mobile engineer designing production apps that carry real vendors, real orders, and real users — in React, React Native, Flutter and Next.js.",
+    "primaryCta": { "label": "View my work", "href": "#projects" },
+    "secondaryCta": { "label": "Get in touch", "href": "#contact" }
+  },
+  "status": {
+    "label": "system status",
+    "stats": [
+      { "id": "vendors", "value": "150+", "label": "vendors supported", "detail": "multi-vendor food delivery ecosystem" },
+      { "id": "uptime", "value": "99.9%", "label": "production uptime", "detail": "across live business-critical systems" },
+      { "id": "latency", "value": "-40%", "label": "API latency", "detail": "via caching & frontend optimization" },
+      { "id": "retention", "value": "+20%", "label": "user retention", "detail": "from analytics-driven UX improvements" }
+    ]
+  },
+  "about": {
+    "heading": "About",
+    "paragraphs": [
+      "I'm a frontend-focused full stack and mobile engineer based in Lagos, building products across React, React Native, Flutter, Next.js and Node.js. My work sits at the intersection of interface craft and system design — I care as much about how a screen feels as I do about how the API behind it holds up under load.",
+      "Over the last few years I've shipped AI-powered ordering assistants, multi-vendor marketplaces, real-time social platforms and food delivery ecosystems — the kind of products where uptime and latency aren't abstract metrics, they're vendors waiting on orders and customers watching a spinner.",
+      "I currently lead frontend and mobile engineering at Varsigram, build the mobile experience at Local Eats Africa, mentor developers at CoderTech, and take on freelance builds for founders who need someone who can own a product from architecture to deployment."
+    ],
+    "focusAreas": [
+      "Frontend architecture & component systems",
+      "React Native & Flutter mobile engineering",
+      "API design, caching & performance",
+      "Authentication, payments & real-time features",
+      "Mentorship & engineering standards"
+    ]
+  },
+  "skills": {
+    "heading": "Stack",
+    "groups": [
+      {
+        "name": "Frontend",
+        "items": ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Framer Motion", "Responsive Design", "State Management"]
+      },
+      {
+        "name": "Mobile",
+        "items": ["React Native", "Flutter", "Dart", "Expo", "Android", "iOS", "Mobile Performance"]
+      },
+      {
+        "name": "Backend",
+        "items": ["Node.js", "Express.js", "REST APIs", "Firebase", "Authentication", "Payment Integration"]
+      },
+      {
+        "name": "Systems & Architecture",
+        "items": ["Scalability", "Caching", "Load Balancing", "Event-Driven Architecture", "Database Design", "Queue Processing"]
+      },
+      {
+        "name": "Tools & Security",
+        "items": ["Sanity CMS", "Git & GitHub", "Figma", "Postman", "PostHog", "OWASP Principles", "CORS Configuration"]
+      }
+    ]
+  },
+  "experience": {
+    "heading": "Experience",
+    "items": [
+      {
+        "id": "varsigram",
+        "role": "Team Lead — Mobile & Frontend Developer",
+        "company": "Varsigram",
+        "location": "Remote",
+        "period": "2025 — Present",
+        "current": true,
+        "points": [
+          "Lead frontend and mobile engineering initiatives across multiple products.",
+          "Design scalable application architectures and reusable component systems for React Native and React.",
+          "Run code reviews and set engineering standards across the team.",
+          "Mentor developers on TypeScript, architecture and debugging.",
+          "Partner with product, design and backend to ship production-ready features."
+        ]
+      },
+      {
+        "id": "local-eats",
+        "role": "Mobile Developer",
+        "company": "Local Eats Africa",
+        "location": "Lagos, Nigeria",
+        "period": "2025 — Present",
+        "current": true,
+        "points": [
+          "Built a multi-vendor food delivery ecosystem supporting 150+ vendors.",
+          "Shipped customer ordering, vendor management, authentication, payments and live order tracking.",
+          "Helped maintain 99.9% uptime across production systems.",
+          "Cut API latency by 40% through caching and frontend optimization.",
+          "Drove a 20% increase in user retention through analytics-led improvements.",
+          "Optimized for low-bandwidth environments and diverse Android devices."
+        ]
+      },
+      {
+        "id": "codertech",
+        "role": "Mobile Development Tutor",
+        "company": "CoderTech",
+        "location": "Lagos, Nigeria",
+        "period": "Dec 2025 — Present",
+        "current": true,
+        "points": [
+          "Mentor developers in React Native, Flutter and frontend architecture.",
+          "Teach project-based courses on auth, APIs, state management and deployment.",
+          "Guide students through professional GitHub workflows."
+        ]
+      },
+      {
+        "id": "freelance",
+        "role": "Freelance Software Engineer",
+        "company": "Self-employed",
+        "location": "Remote",
+        "period": "2023 — Present",
+        "current": true,
+        "points": [
+          "Design and build custom software for startups and founders end-to-end.",
+          "Build CMS-powered sites with Sanity and modern frontend tooling.",
+          "Ship React Native & Flutter apps for e-commerce and customer-facing products.",
+          "Integrate auth, payments, analytics and third-party services."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Selected builds",
+    "items": [
+      {
+        "id": "ai-ordering",
+        "name": "AI Food Ordering Assistant",
+        "tag": "AI Product",
+        "description": "A conversational ordering assistant that helps users discover meals, get recommendations, and complete purchases without leaving the chat.",
+        "stack": ["React Native", "Node.js", "AI/LLM integration"],
+        "highlights": ["Conversational discovery & recommendations", "Ordering & payment built into the flow"],
+        "link": ""
+      },
+      {
+        "id": "marketplace",
+        "name": "Multi-Vendor Marketplace",
+        "tag": "Marketplace",
+        "description": "A scalable marketplace supporting multiple merchants — inventory, product management, ordering and payments in one platform.",
+        "stack": ["React", "Next.js", "Node.js"],
+        "highlights": ["Merchant operational tooling", "Inventory & product management"],
+        "link": ""
+      },
+      {
+        "id": "social",
+        "name": "Real-Time Social Platform",
+        "tag": "Social",
+        "description": "A social networking app with profiles, media sharing, notifications and real-time interactions.",
+        "stack": ["React Native", "Firebase", "Real-time"],
+        "highlights": ["Real-time engagement & notifications", "Reusable component architecture"],
+        "link": ""
+      },
+      {
+        "id": "vendor-mgmt",
+        "name": "Vendor Management App",
+        "tag": "Internal Tools",
+        "description": "A vendor-facing platform for managing inventory, products, orders and availability, with dashboards for operational visibility.",
+        "stack": ["React", "Node.js"],
+        "highlights": ["Operational dashboards", "Inventory & order management"],
+        "link": ""
+      },
+      {
+        "id": "food-delivery",
+        "name": "Food Delivery Ecosystem",
+        "tag": "Marketplace",
+        "description": "A production-grade delivery platform covering customer, vendor and operational workflows end-to-end.",
+        "stack": ["React Native", "Node.js", "Payments"],
+        "highlights": ["Live order tracking", "Payments & notifications"],
+        "link": ""
+      },
+      {
+        "id": "interactive-web",
+        "name": "Interactive Web Experiences",
+        "tag": "Frontend",
+        "description": "Modern marketing sites with advanced animation and parallax scrolling, tuned for performance and accessibility.",
+        "stack": ["Next.js", "Framer Motion", "Sanity CMS"],
+        "highlights": ["Parallax & scroll-driven animation", "SEO-friendly, CMS-powered"],
+        "link": ""
+      }
+    ]
+  },
+  "certifications": {
+    "heading": "Certifications",
+    "items": [
+      { "name": "CompTIA Security+", "issuer": "CompTIA", "year": "In Progress" },
+      { "name": "Junior Cybersecurity Analyst Career Path", "issuer": "Cisco Academy", "year": "2026" },
+      { "name": "Endpoint Security", "issuer": "Cisco Academy", "year": "2025" },
+      { "name": "Network Defense", "issuer": "Cisco Academy", "year": "2025" },
+      { "name": "Networking Basics", "issuer": "Cisco Academy", "year": "2025" },
+      { "name": "Networking Devices & Initial Configuration", "issuer": "Cisco Academy", "year": "2025" },
+      { "name": "Vulnerability Assessment and Risk Management", "issuer": "", "year": "" },
+      { "name": "Virtual Assistant Skills", "issuer": "ALX", "year": "2024" }
+    ]
+  },
+  "leadership": {
+    "heading": "Leadership",
+    "items": [
+      {
+        "role": "President, Community Development Service (CDS)",
+        "org": "National Youth Service Corps (NYSC)",
+        "period": "2024 — 2025",
+        "points": [
+          "Led initiatives impacting over 50 members.",
+          "Organized awareness programs and community development projects.",
+          "Coordinated volunteers and stakeholders to achieve project objectives."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "heading": "Education",
+    "items": [
+      {
+        "degree": "B.Sc. Ed. — Industrial Technical Education (Automobile Technology)",
+        "school": "University of Benin, Nigeria",
+        "period": "2018 — 2023"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Let's build something",
+    "message": "I'm open to full-time roles, contract work, and interesting products that need a frontend-focused engineer who can own mobile too. If that's you, reach out.",
+    "email": "baighangbe@gmail.com",
+    "phone": "+234 903 066 9440",
+    "location": "Lagos, Nigeria"
+  }
+}

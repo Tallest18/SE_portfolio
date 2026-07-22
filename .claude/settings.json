@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node \"C:\\\\Users\\\\bb\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-bb-Desktop-portfolio\\\\b1141b56-0370-4bb3-af91-a00730a5ae9d\\\\scratchpad\\\\recolor.js\")",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000 >/dev/null; do sleep 1; done')",
+      "Read(//tmp/**)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(where chrome.exe)",
+      "Bash(where msedge.exe)",
+      "Bash(node \"C:\\\\Users\\\\bb\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-bb-Desktop-portfolio\\\\b1141b56-0370-4bb3-af91-a00730a5ae9d\\\\scratchpad\\\\screenshot.js\" \"C:\\\\Users\\\\bb\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-bb-Desktop-portfolio\\\\b1141b56-0370-4bb3-af91-a00730a5ae9d\\\\scratchpad\\\\home.png\")"
+    ]
+  }
+}
