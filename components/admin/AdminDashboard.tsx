@@ -55,6 +55,9 @@ export function AdminDashboard({ initialContent }: { initialContent: PortfolioCo
       });
       if (res.ok) {
         setMessage({ type: "ok", text: "Saved. Your live site is updated." });
+      } else if (res.status === 401) {
+        setMessage({ type: "error", text: "Session expired. Redirecting to login…" });
+        router.push("/admin");
       } else {
         const data = await res.json().catch(() => ({}));
         setMessage({ type: "error", text: data.error ?? "Could not save changes." });

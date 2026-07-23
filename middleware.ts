@@ -20,6 +20,9 @@ export async function middleware(request: NextRequest) {
   const valid = await isValidSession(token);
 
   if (!valid) {
+    if (request.nextUrl.pathname.startsWith("/api/")) {
+      return NextResponse.json({ error: "Session expired. Please log in again." }, { status: 401 });
+    }
     const loginUrl = new URL("/admin", request.url);
     return NextResponse.redirect(loginUrl);
   }
