@@ -7,16 +7,16 @@
     "email": "baighangbe@gmail.com",
     "phone": "+234 903 066 9440",
     "links": {
-      "github": "",
-      "linkedin": "",
+      "github": "https://github.com/Tallest18",
+      "linkedin": "www.linkedin.com/in/blessing-aighangbe-83135b24b",
       "portfolio": "",
       "playstore": ""
     },
-    "availability": "Open to full-time & contract roles",
+    "availability": "Open to full-time, remote & contract roles",
     "resumeUrl": ""
   },
   "hero": {
-    "eyebrow": "// blessing-aighangbe.dev",
+    "eyebrow": "// Blessing-Aighangbe.dev",
     "roles": [
       "React & React Native Engineer",
       "Flutter Developer",
@@ -25,16 +25,42 @@
     ],
     "headline": "I build interfaces that ship, scale, and stay up.",
     "subheadline": "Frontend-focused full stack & mobile engineer designing production apps that carry real vendors, real orders, and real users — in React, React Native, Flutter and Next.js.",
-    "primaryCta": { "label": "View my work", "href": "#projects" },
-    "secondaryCta": { "label": "Get in touch", "href": "#contact" }
+    "primaryCta": {
+      "label": "View my work",
+      "href": "#projects"
+    },
+    "secondaryCta": {
+      "label": "Get in touch",
+      "href": "#contact"
+    }
   },
   "status": {
     "label": "system status",
     "stats": [
-      { "id": "vendors", "value": "150+", "label": "vendors supported", "detail": "multi-vendor food delivery ecosystem" },
-      { "id": "uptime", "value": "99.9%", "label": "production uptime", "detail": "across live business-critical systems" },
-      { "id": "latency", "value": "-40%", "label": "API latency", "detail": "via caching & frontend optimization" },
-      { "id": "retention", "value": "+20%", "label": "user retention", "detail": "from analytics-driven UX improvements" }
+      {
+        "id": "vendors",
+        "value": "150+",
+        "label": "vendors supported",
+        "detail": "multi-vendor food delivery ecosystem"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "production uptime",
+        "detail": "across live business-critical systems"
+      },
+      {
+        "id": "latency",
+        "value": "-40%",
+        "label": "API latency",
+        "detail": "via caching & frontend optimization"
+      },
+      {
+        "id": "retention",
+        "value": "+20%",
+        "label": "user retention",
+        "detail": "from analytics-driven UX improvements"
+      }
     ]
   },
   "about": {
@@ -57,23 +83,63 @@
     "groups": [
       {
         "name": "Frontend",
-        "items": ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Framer Motion", "Responsive Design", "State Management"]
+        "items": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript (ES6+)",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Responsive Design",
+          "State Management"
+        ]
       },
       {
         "name": "Mobile",
-        "items": ["React Native", "Flutter", "Dart", "Expo", "Android", "iOS", "Mobile Performance"]
+        "items": [
+          "React Native",
+          "Flutter",
+          "Dart",
+          "Expo",
+          "Android",
+          "iOS",
+          "Mobile Performance"
+        ]
       },
       {
         "name": "Backend",
-        "items": ["Node.js", "Express.js", "REST APIs", "Firebase", "Authentication", "Payment Integration"]
+        "items": [
+          "Node.js",
+          "Express.js",
+          "REST APIs",
+          "Firebase",
+          "Authentication",
+          "Payment Integration",
+          "Python"
+        ]
       },
       {
         "name": "Systems & Architecture",
-        "items": ["Scalability", "Caching", "Load Balancing", "Event-Driven Architecture", "Database Design", "Queue Processing"]
+        "items": [
+          "Scalability",
+          "Caching",
+          "Load Balancing",
+          "Event-Driven Architecture",
+          "Database Design",
+          "Queue Processing"
+        ]
       },
       {
         "name": "Tools & Security",
-        "items": ["Sanity CMS", "Git & GitHub", "Figma", "Postman", "PostHog", "OWASP Principles", "CORS Configuration"]
+        "items": [
+          "Sanity CMS",
+          "Git & GitHub",
+          "Figma",
+          "Postman",
+          "PostHog",
+          "OWASP Principles",
+          "CORS Configuration"
+        ]
       }
     ]
   },
@@ -148,68 +214,142 @@
         "name": "AI Food Ordering Assistant",
         "tag": "AI Product",
         "description": "A conversational ordering assistant that helps users discover meals, get recommendations, and complete purchases without leaving the chat.",
-        "stack": ["React Native", "Node.js", "AI/LLM integration"],
-        "highlights": ["Conversational discovery & recommendations", "Ordering & payment built into the flow"],
+        "stack": [
+          "React Native",
+          "Node.js",
+          "AI/LLM integration"
+        ],
+        "highlights": [
+          "Conversational discovery & recommendations",
+          "Ordering & payment built into the flow"
+        ],
         "link": ""
       },
       {
         "id": "marketplace",
-        "name": "Multi-Vendor Marketplace",
+        "name": "INVENTRA",
         "tag": "Marketplace",
         "description": "A scalable marketplace supporting multiple merchants — inventory, product management, ordering and payments in one platform.",
-        "stack": ["React", "Next.js", "Node.js"],
-        "highlights": ["Merchant operational tooling", "Inventory & product management"],
-        "link": ""
+        "stack": [
+          "React",
+          "Next.js",
+          "Node.js"
+        ],
+        "highlights": [
+          "Merchant operational tooling",
+          "Inventory & product management"
+        ],
+        "link": "https://play.google.com/store/apps/details?id=localeatsafricaVendor.com"
       },
       {
         "id": "social",
-        "name": "Real-Time Social Platform",
+        "name": "Real-Time Social Platform(VARSIGRAM)",
         "tag": "Social",
         "description": "A social networking app with profiles, media sharing, notifications and real-time interactions.",
-        "stack": ["React Native", "Firebase", "Real-time"],
-        "highlights": ["Real-time engagement & notifications", "Reusable component architecture"],
-        "link": ""
+        "stack": [
+          "React Native",
+          "Firebase",
+          "Real-time"
+        ],
+        "highlights": [
+          "Real-time engagement & notifications",
+          "Reusable component architecture"
+        ],
+        "link": "https://play.google.com/store/apps/details?id=com.varsigram.app"
       },
       {
         "id": "vendor-mgmt",
-        "name": "Vendor Management App",
+        "name": "Vendor Management App (LEVA)",
         "tag": "Internal Tools",
         "description": "A vendor-facing platform for managing inventory, products, orders and availability, with dashboards for operational visibility.",
-        "stack": ["React", "Node.js"],
-        "highlights": ["Operational dashboards", "Inventory & order management"],
-        "link": ""
+        "stack": [
+          "React",
+          "Node.js"
+        ],
+        "highlights": [
+          "Operational dashboards",
+          "Inventory & order management"
+        ],
+        "link": "https://play.google.com/store/apps/details?id=localeatsafricaVendor.com"
       },
       {
         "id": "food-delivery",
         "name": "Food Delivery Ecosystem",
         "tag": "Marketplace",
         "description": "A production-grade delivery platform covering customer, vendor and operational workflows end-to-end.",
-        "stack": ["React Native", "Node.js", "Payments"],
-        "highlights": ["Live order tracking", "Payments & notifications"],
+        "stack": [
+          "React Native",
+          "Node.js",
+          "Payments"
+        ],
+        "highlights": [
+          "Live order tracking",
+          "Payments & notifications"
+        ],
         "link": ""
       },
       {
         "id": "interactive-web",
         "name": "Interactive Web Experiences",
         "tag": "Frontend",
-        "description": "Modern marketing sites with advanced animation and parallax scrolling, tuned for performance and accessibility.",
-        "stack": ["Next.js", "Framer Motion", "Sanity CMS"],
-        "highlights": ["Parallax & scroll-driven animation", "SEO-friendly, CMS-powered"],
-        "link": ""
+        "description": "Modern church sites with advanced animation and parallax scrolling, tuned for performance and accessibility.",
+        "stack": [
+          "React",
+          "Framer Motion",
+          "Sanity CMS",
+          "Tailwindcss"
+        ],
+        "highlights": [
+          "Parallax & scroll-driven animation",
+          "SEO-friendly, CMS-powered"
+        ],
+        "link": "https://50.apostolicfaith.org.uk/"
       }
     ]
   },
   "certifications": {
     "heading": "Certifications",
     "items": [
-      { "name": "CompTIA Security+", "issuer": "CompTIA", "year": "In Progress" },
-      { "name": "Junior Cybersecurity Analyst Career Path", "issuer": "Cisco Academy", "year": "2026" },
-      { "name": "Endpoint Security", "issuer": "Cisco Academy", "year": "2025" },
-      { "name": "Network Defense", "issuer": "Cisco Academy", "year": "2025" },
-      { "name": "Networking Basics", "issuer": "Cisco Academy", "year": "2025" },
-      { "name": "Networking Devices & Initial Configuration", "issuer": "Cisco Academy", "year": "2025" },
-      { "name": "Vulnerability Assessment and Risk Management", "issuer": "", "year": "" },
-      { "name": "Virtual Assistant Skills", "issuer": "ALX", "year": "2024" }
+      {
+        "name": "CompTIA Security+",
+        "issuer": "CompTIA",
+        "year": "In Progress"
+      },
+      {
+        "name": "Junior Cybersecurity Analyst Career Path",
+        "issuer": "Cisco Academy",
+        "year": "2026"
+      },
+      {
+        "name": "Endpoint Security",
+        "issuer": "Cisco Academy",
+        "year": "2025"
+      },
+      {
+        "name": "Network Defense",
+        "issuer": "Cisco Academy",
+        "year": "2025"
+      },
+      {
+        "name": "Networking Basics",
+        "issuer": "Cisco Academy",
+        "year": "2025"
+      },
+      {
+        "name": "Networking Devices & Initial Configuration",
+        "issuer": "Cisco Academy",
+        "year": "2025"
+      },
+      {
+        "name": "Vulnerability Assessment and Risk Management",
+        "issuer": "",
+        "year": ""
+      },
+      {
+        "name": "Virtual Assistant Skills",
+        "issuer": "ALX",
+        "year": "2024"
+      }
     ]
   },
   "leadership": {
