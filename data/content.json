@@ -21,10 +21,10 @@
       "React Native developer",
       "Flutter developer",
       "React & Next.js developer",
-      "Mobile team lead"
+      "Fintech mobile engineer"
     ],
     "headline": "I'm Blessing, and I build mobile and web apps.",
-    "subheadline": "Mostly React Native and Flutter, plus React, Next.js and the Node.js APIs behind them. Right now I lead the frontend and mobile team at Varsigram and work on the customer and vendor apps at Local Eats Africa.",
+    "subheadline": "Mostly React Native and Flutter, plus React, Next.js and the Node.js APIs behind them. Right now I build Rolla Pay, a cross-border payments app, and work on Varsigram and the Local Eats Africa customer and vendor apps.",
     "primaryCta": {
       "label": "See my work",
       "href": "#projects"
@@ -66,7 +66,7 @@
   "about": {
     "heading": "About",
     "paragraphs": [
-      "I started building software for clients in 2023, mostly startups and founders who needed an app or a website and someone to see it through to launch. In 2025 I joined Varsigram and Local Eats Africa, and I've been at both since.",
+      "I started building software for clients in 2023, mostly startups and founders who needed an app or a website and someone to see it through to launch. In 2025 I joined Varsigram and Local Eats Africa, and I've been at both since. In August 2026 I joined Rolla Pay, a fintech company building a cross-border payments platform, and shipped its app to Google Play and the App Store.",
       "At Local Eats, more than 150 vendors take orders through the apps I work on. A lot of my time there goes into keeping those apps fast and dependable on slow networks and cheaper Android phones.",
       "My degree is in automobile technology, from the University of Benin. These days I also teach mobile development at CoderTech, and I've been studying security on the side. I finished Cisco's junior cybersecurity analyst path in 2026 and I'm working toward CompTIA Security+."
     ],
@@ -120,7 +120,9 @@
           "Payment integration",
           "Real-time features",
           "Caching",
-          "Database design"
+          "Database design",
+          "KYC & identity verification",
+          "Push notifications"
         ]
       },
       {
@@ -140,16 +142,30 @@
     "heading": "Experience",
     "items": [
       {
+        "id": "rolla-pay",
+        "role": "Mobile Engineer",
+        "company": "Rolla Pay",
+        "location": "Remote",
+        "period": "Aug 2026 – Present",
+        "current": true,
+        "points": [
+          "Build the Rolla Pay mobile app in React Native and Expo for a cross-border payments platform, and shipped it to Google Play and the App Store.",
+          "Built wallets, deposits, sending money (including CAD by Interac e-Transfer), currency swaps and transaction history.",
+          "Implemented sign-in with Google and Apple, two-factor authentication (email and authenticator app), biometric unlock, and identity verification with document scans and liveness checks.",
+          "Set up push notifications, over-the-air updates, in-app update prompts and in-app support chat."
+        ]
+      },
+      {
         "id": "varsigram",
-        "role": "Team Lead, Mobile & Frontend",
+        "role": "Frontend & Mobile Developer",
         "company": "Varsigram",
         "location": "Remote",
         "period": "2025 – Present",
         "current": true,
         "points": [
-          "Lead the frontend and mobile team across several products, working with product, design and backend to get features shipped.",
-          "Set up the app architecture and the shared components our React and React Native apps are built on.",
-          "Review code, write the team's engineering standards, and mentor developers on TypeScript, architecture and debugging."
+          "Build features across Varsigram's React and React Native apps, working with product, design and backend to get them shipped.",
+          "Set up the app architecture and the shared components the React and React Native apps are built on.",
+          "Previously led the frontend and mobile team: reviewed code, wrote the team's engineering standards, and mentored developers on TypeScript, architecture and debugging."
         ]
       },
       {
@@ -197,6 +213,22 @@
     "heading": "Selected builds",
     "items": [
       {
+        "id": "rolla-pay",
+        "name": "Rolla Pay",
+        "tag": "Fintech",
+        "description": "A cross-border payments app: hold money in wallets, deposit, send money abroad, swap currencies and follow every transaction. Live on Google Play and the App Store.",
+        "stack": [
+          "React Native",
+          "Expo",
+          "TypeScript"
+        ],
+        "highlights": [
+          "Wallets, Interac deposits, cross-border sends and currency swaps",
+          "Google and Apple sign-in, 2FA, biometric unlock and KYC identity checks"
+        ],
+        "link": "https://play.google.com/store/apps/details?id=com.RollaMobileAPP"
+      },
+      {
         "id": "ai-ordering",
         "name": "AI food ordering assistant",
         "tag": "AI",
@@ -232,7 +264,7 @@
         "id": "social",
         "name": "Varsigram",
         "tag": "Social",
-        "description": "A social app with profiles, media posts, notifications and real-time updates. I lead the team behind it.",
+        "description": "A social app with profiles, media posts, notifications and real-time updates. I work on the app and previously led the team behind it.",
         "stack": [
           "React Native",
           "Firebase",
