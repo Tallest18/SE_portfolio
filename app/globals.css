@@ -54,3 +54,150 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+/* ------------------------------------------------------------------
+   Public site: the 3D world. Scoped with :has() so /admin keeps its
+   light theme from the rules above.
+   ------------------------------------------------------------------ */
+
+html:has(.world-root) {
+  color-scheme: dark;
+  background-color: #0a1124;
+}
+
+body:has(.world-root) {
+  background: #0a1124;
+  color: #f4efe6;
+}
+
+html:has(.world-root) ::-webkit-scrollbar-track {
+  background: #070b16;
+}
+html:has(.world-root) ::-webkit-scrollbar-thumb {
+  background: #22304f;
+}
+html:has(.world-root) ::-webkit-scrollbar-thumb:hover {
+  background: #3a4a6e;
+}
+
+/* Nothing decorative may cause sideways scrolling on narrow screens. */
+.world-root {
+  overflow-x: clip;
+}
+
+.world-root ::selection {
+  background: rgba(226, 102, 42, 0.45);
+  color: #fff;
+}
+
+.world-root :focus-visible {
+  outline-color: #e2662a;
+}
+
+/* Static stand-in for the scene: shown while it loads and in flat mode. */
+.world-backdrop {
+  background:
+    radial-gradient(110% 60% at 65% 100%, rgba(180, 80, 31, 0.26), transparent 62%),
+    radial-gradient(70% 50% at 12% 8%, rgba(79, 179, 188, 0.1), transparent 60%),
+    linear-gradient(180deg, #03050c 0%, #0a1124 62%);
+}
+
+.world-floor {
+  background-image:
+    linear-gradient(rgba(59, 110, 154, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 110, 154, 0.32) 1px, transparent 1px);
+  background-size: 72px 72px;
+  transform: perspective(480px) rotateX(64deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, black 5%, transparent 80%);
+  mask-image: linear-gradient(to top, black 5%, transparent 80%);
+}
+
+.world-vignette {
+  background: radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, rgba(2, 4, 10, 0.6) 100%);
+}
+
+/* Flat view (no 3D: toggled off, no WebGL2, or Data Saver). Nothing needs room
+   reserved for scene objects, so the journey collapses into a compact page. */
+.world-root[data-mode="flat"] [data-anchor]:not([data-anchor="hero"]) {
+  min-height: 0;
+}
+.world-root[data-mode="flat"] [data-anchor]:not([data-anchor="hero"]) > div {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.world-root[data-mode="flat"] [data-anchor="hero"] > div:first-child {
+  padding-top: 7rem;
+}
+.world-root[data-mode="flat"] [data-transit] {
+  display: none;
+}
+.world-root[data-mode="flat"] section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Panels floating in the world. Blur only where GPUs can afford it. */
+.glass {
+  background: linear-gradient(180deg, rgba(16, 26, 48, 0.86), rgba(8, 13, 26, 0.82));
+  border: 1px solid rgba(244, 239, 230, 0.09);
+  box-shadow:
+    0 40px 80px -30px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(244, 239, 230, 0.06);
+}
+
+@media (min-width: 1024px) {
+  .glass {
+    background: linear-gradient(180deg, rgba(16, 26, 48, 0.66), rgba(8, 13, 26, 0.6));
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+
+.glass-active {
+  border-color: rgba(226, 102, 42, 0.45);
+  box-shadow:
+    0 40px 80px -30px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(226, 102, 42, 0.25),
+    0 0 50px -12px rgba(226, 102, 42, 0.45),
+    inset 0 1px 0 rgba(244, 239, 230, 0.06);
+}
+
+.hud-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -1px;
+  border-color: rgba(226, 102, 42, 0.7);
+  pointer-events: none;
+}
+.hud-corner.top-0.left-0 {
+  border-top-left-radius: 16px;
+}
+.hud-corner.top-0.right-0 {
+  border-top-right-radius: 16px;
+}
+.hud-corner.bottom-0.left-0 {
+  border-bottom-left-radius: 16px;
+}
+.hud-corner.bottom-0.right-0 {
+  border-bottom-right-radius: 16px;
+}
+
+/* Hero copy sits directly on the scene; on narrow screens it overlaps the
+   gate, so give it a soft shadow scrim instead of a panel. */
+.hero-scrim {
+  text-shadow: 0 2px 24px rgba(3, 5, 12, 0.85);
+}
+@media (max-width: 1023px) {
+  .hero-scrim {
+    position: relative;
+  }
+  .hero-scrim::before {
+    content: "";
+    position: absolute;
+    inset: -2.5rem -1rem -1.5rem;
+    z-index: -1;
+    background: radial-gradient(ellipse 80% 75% at 50% 55%, rgba(5, 8, 18, 0.82), rgba(5, 8, 18, 0) 100%);
+    pointer-events: none;
+  }
+}

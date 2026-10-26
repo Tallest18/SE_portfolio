@@ -2,16 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
-import { TerminalWindow } from "./TerminalWindow";
+import { ArrowDown, ArrowRight, Mail } from "lucide-react";
 import type { HeroContent, SiteInfo, StatusContent } from "@/lib/types";
+import { useWorld } from "@/lib/world/store";
+import { Transit } from "./world/ui";
 
-function useTypewriter(words: string[]) {
+function useTypewriter(words: string[], enabled: boolean) {
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState("");
   const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
 
   useEffect(() => {
+    if (!enabled || words.length === 0) return;
     const current = words[wordIndex % words.length];
     let timeout: ReturnType<typeof setTimeout>;
 
@@ -33,10 +35,17 @@ function useTypewriter(words: string[]) {
     }
 
     return () => clearTimeout(timeout);
-  }, [text, phase, wordIndex, words]);
+  }, [text, phase, wordIndex, words, enabled]);
 
-  return text;
+  return enabled ? text : (words[0] ?? "");
 }
+
+// MotionConfig (in World) drops the movement for reduced-motion users and keeps the fade.
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay: 0.15 + delay, ease: [0.16, 1, 0.3, 1] as const }
+});
 
 export function Hero({
   hero,
@@ -47,109 +56,95 @@ export function Hero({
   site: SiteInfo;
   status: StatusContent;
 }) {
-  const typed = useTypewriter(hero.roles);
+  // From the store rather than matchMedia so server and first client render agree.
+  const reduce = useWorld((s) => s.reducedMotion);
+  const typed = useTypewriter(hero.roles, !reduce);
 
   return (
-    <section id="top" className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 px-6">
-      <div className="absolute inset-0 bg-grid bg-[length:44px_44px] grid-fade-mask opacity-60 pointer-events-none" />
+    <section id="top" aria-labelledby="hero-title" className="relative">
+      <div data-anchor="hero" className="pointer-events-none relative flex min-h-[100svh] flex-col">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 items-end px-4 pb-8 pt-[38svh] sm:px-8 lg:items-center lg:pt-28 short:items-center short:pt-20">
+          <div className="hero-scrim pointer-events-auto max-w-xl lg:max-w-[30rem] xl:max-w-[40rem] short:max-w-[26rem]">
+            <motion.p {...rise(0)} className="mb-5 font-mono text-xs tracking-wide text-copper-light">
+              {hero.eyebrow}
+            </motion.p>
 
-      <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-        <div>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="font-mono text-xs text-copper mb-5 tracking-wide"
-          >
-            {hero.eyebrow}
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] font-semibold text-balance text-ink-950"
-          >
-            {hero.headline}
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-5 font-mono text-sm sm:text-base text-ink-800 h-6"
-          >
-            <span className="text-ink-600">const role = </span>
-            <span className="text-teal">&quot;{typed}</span>
-            <span className="inline-block w-[2px] h-4 bg-teal align-middle ml-0.5 animate-blink" />
-            <span className="text-teal">&quot;</span>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 text-ink-700 text-base sm:text-lg max-w-xl leading-relaxed"
-          >
-            {hero.subheadline}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
-          >
-            <a
-              href={hero.primaryCta.href}
-              className="group inline-flex items-center gap-2 rounded-lg bg-copper px-5 py-3 font-medium text-ink-50 hover:bg-copper-light transition-colors"
+            <motion.h1
+              id="hero-title"
+              {...rise(0.08)}
+              className="text-balance font-display text-[2.4rem] font-semibold leading-[1.04] text-cream sm:text-6xl lg:text-[3.4rem] xl:text-[4.1rem] short:text-4xl"
             >
-              {hero.primaryCta.label}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href={hero.secondaryCta.href}
-              className="inline-flex items-center gap-2 rounded-lg border border-ink-500 px-5 py-3 font-medium text-ink-900 hover:border-copper hover:text-copper transition-colors"
-            >
-              <Mail size={16} />
-              {hero.secondaryCta.label}
-            </a>
-          </motion.div>
+              {hero.headline}
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 font-mono text-xs text-ink-600"
-          >
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper mr-2 align-middle" />
-            {site.availability} · {site.location}
-          </motion.p>
+            <motion.p {...rise(0.18)} className="mt-5 h-6 font-mono text-sm text-cream/80 sm:text-base">
+              <span className="text-mist">const role = </span>
+              <span className="text-signal">&quot;{typed}</span>
+              <span aria-hidden="true" className="ml-0.5 inline-block h-4 w-[2px] animate-blink bg-signal align-middle" />
+              <span className="text-signal">&quot;</span>
+            </motion.p>
+
+            <motion.p {...rise(0.26)} className="mt-6 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg">
+              {hero.subheadline}
+            </motion.p>
+
+            <motion.div {...rise(0.34)} className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={hero.primaryCta.href}
+                className="group inline-flex items-center gap-2 rounded-full bg-copper px-5 py-3 font-medium text-cream shadow-[0_10px_40px_-10px_rgba(226,102,42,0.8)] transition-colors hover:bg-copper-light"
+              >
+                {hero.primaryCta.label}
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href={hero.secondaryCta.href}
+                className="inline-flex items-center gap-2 rounded-full border border-cream/25 bg-night/40 px-5 py-3 font-medium text-cream backdrop-blur transition-colors hover:border-copper-light hover:text-copper-light"
+              >
+                <Mail size={16} />
+                {hero.secondaryCta.label}
+              </a>
+            </motion.div>
+
+            <motion.p {...rise(0.42)} className="mt-7 flex items-center gap-2 font-mono text-xs text-mist">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-copper-light opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-copper-light" />
+              </span>
+              {site.availability} · {site.location}
+            </motion.p>
+          </div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          {...rise(0.55)}
+          className="pointer-events-auto mx-auto w-full max-w-7xl px-4 pb-6 sm:px-8"
         >
-          <TerminalWindow tabs={["status.ts", "stack.json"]}>
-            <p className="font-mono text-xs text-ink-600 mb-4">{status.label}</p>
-            <div className="grid grid-cols-2 gap-5">
+          <div className="glass relative rounded-2xl px-5 py-4 sm:px-6">
+            <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-mist">
+              <span className="h-1.5 w-1.5 rounded-full bg-signal" />
+              {status.label}
+            </p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-4">
               {status.stats.map((stat) => (
-                <div key={stat.id}>
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-ink-950">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-ink-700 mt-1">{stat.label}</p>
-                  <p className="font-mono text-[10px] text-ink-500 mt-1 leading-snug">
-                    {stat.detail}
-                  </p>
-                </div>
+                <li key={stat.id} className="min-w-0">
+                  <p className="font-display text-2xl font-semibold text-cream sm:text-3xl">{stat.value}</p>
+                  <p className="mt-0.5 text-xs text-cream/75">{stat.label}</p>
+                  <p className="mt-0.5 font-mono text-[10px] leading-snug text-mist">{stat.detail}</p>
+                </li>
               ))}
-            </div>
-          </TerminalWindow>
+            </ul>
+          </div>
         </motion.div>
+
+        <a
+          href="#about"
+          className="pointer-events-auto mx-auto mb-5 hidden items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-mist transition-colors hover:text-cream lg:flex"
+        >
+          scroll to enter
+          <ArrowDown size={14} className="motion-safe:animate-bounce" />
+        </a>
       </div>
+      <Transit />
     </section>
   );
 }
