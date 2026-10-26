@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Phones held sideways (and very short windows): too short to stack the
+        // 3D object above the text, so panels sit beside it instead.
+        short: { raw: "(orientation: landscape) and (max-height: 540px)" }
+      },
       colors: {
         ink: {
           DEFAULT: "#14213D",
@@ -32,7 +37,18 @@ const config: Config = {
           DEFAULT: "#2A6F77",
           light: "#4C9BA3",
           dark: "#1D4F55"
-        }
+        },
+        // The 3D world's night palette (public site). The admin keeps the ink scale above.
+        night: {
+          DEFAULT: "#070B16",
+          900: "#0A1020",
+          800: "#0F172B",
+          700: "#16213B"
+        },
+        cream: "#F4EFE6",
+        mist: "#9AA4B8",
+        signal: "#4FB3BC",
+        gold: "#D4A74A"
       },
       fontFamily: {
         display: ["var(--font-display)"],

@@ -5,6 +5,9 @@ import type { PortfolioContent } from "@/lib/types";
 // Note: this route is protected by middleware.ts, which checks for a valid
 // admin session cookie before requests ever reach here.
 
+// Without this, Next prerenders GET at build time and serves stale content.
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const content = await getContent();
