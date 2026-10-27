@@ -1,4 +1,5 @@
 import "server-only";
+import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 
 export const SESSION_COOKIE = "portfolio_admin_session";
@@ -31,4 +32,13 @@ export async function verifySessionToken(token: string | undefined): Promise<boo
   } catch {
     return false;
   }
+}
+
+/**
+ * True when the current request carries a valid admin session. Protected
+ * routes and pages call this themselves rather than trusting middleware alone,
+ * since middleware can be bypassed (e.g. CVE-2025-29927).
+ */
+export async function hasAdminSession(): Promise<boolean> {
+  return verifySessionToken(cookies().get(SESSION_COOKIE)?.value);
 }
