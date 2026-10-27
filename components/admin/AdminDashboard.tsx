@@ -401,11 +401,23 @@ export function AdminDashboard({ initialContent }: { initialContent: PortfolioCo
                       next[i] = { ...next[i], description: v };
                       update("projects", { ...content.projects, items: next });
                     }} />
-                    <Field label="Link (optional)" value={item.link} onChange={(v) => {
+                    <Field label="My role (optional)" value={item.role ?? ""} onChange={(v) => {
                       const next = [...content.projects.items];
-                      next[i] = { ...next[i], link: v };
+                      next[i] = { ...next[i], role: v };
                       update("projects", { ...content.projects, items: next });
                     }} />
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <Field label="Link: Google Play or website (optional)" value={item.link} onChange={(v) => {
+                        const next = [...content.projects.items];
+                        next[i] = { ...next[i], link: v };
+                        update("projects", { ...content.projects, items: next });
+                      }} />
+                      <Field label="App Store link (optional)" value={item.appStore ?? ""} onChange={(v) => {
+                        const next = [...content.projects.items];
+                        next[i] = { ...next[i], appStore: v };
+                        update("projects", { ...content.projects, items: next });
+                      }} />
+                    </div>
                     <StringListField label="Stack" items={item.stack} onChange={(v) => {
                       const next = [...content.projects.items];
                       next[i] = { ...next[i], stack: v };

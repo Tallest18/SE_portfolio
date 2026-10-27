@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight, Mail } from "lucide-react";
-import type { HeroContent, SiteInfo, StatusContent } from "@/lib/types";
+import { ArrowDown, ArrowRight, FileText, Mail } from "lucide-react";
+import type { HeroContent, SiteInfo, StatusContent, StatusStat } from "@/lib/types";
+import type { ProfileFacts } from "@/lib/profile";
 import { useWorld } from "@/lib/world/store";
 import { Transit } from "./world/ui";
 
@@ -50,15 +51,34 @@ const rise = (delay: number) => ({
 export function Hero({
   hero,
   site,
-  status
+  status,
+  facts,
+  resumeHref
 }: {
   hero: HeroContent;
   site: SiteInfo;
   status: StatusContent;
+  facts: ProfileFacts;
+  resumeHref: string;
 }) {
   // From the store rather than matchMedia so server and first client render agree.
   const reduce = useWorld((s) => s.reducedMotion);
   const typed = useTypewriter(hero.roles, !reduce);
+
+  // Headline numbers a recruiter scans first, computed from the content.
+  const derived: StatusStat[] = [];
+  if (facts.years !== null) {
+    derived.push({ id: "years", value: `${facts.years}+`, label: "years shipping software", detail: `since ${facts.since}` });
+  }
+  if (facts.storeApps.length) {
+    derived.push({
+      id: "store-apps",
+      value: String(facts.storeApps.length),
+      label: facts.onAppStore ? "apps live in the app stores" : "apps live on Google Play",
+      detail: facts.storeApps.join(" · ")
+    });
+  }
+  const stats = [...derived, ...status.stats];
 
   return (
     <section id="top" aria-labelledby="hero-title" className="relative">
@@ -103,6 +123,16 @@ export function Hero({
                 <Mail size={16} />
                 {hero.secondaryCta.label}
               </a>
+              <a
+                href={resumeHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full px-3 py-3 font-medium text-cream/85 underline-offset-4 transition-colors hover:text-copper-light hover:underline"
+              >
+                <FileText size={16} />
+                Résumé
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
             </motion.div>
 
             <motion.p {...rise(0.42)} className="mt-7 flex items-center gap-2 font-mono text-xs text-mist">
@@ -124,8 +154,10 @@ export function Hero({
               <span className="h-1.5 w-1.5 rounded-full bg-signal" />
               {status.label}
             </p>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-4">
-              {status.stats.map((stat) => (
+            <ul
+              className={`grid grid-cols-2 gap-x-6 gap-y-4 ${stats.length > 4 ? "md:grid-cols-3 xl:grid-cols-6" : "md:grid-cols-4"}`}
+            >
+              {stats.map((stat) => (
                 <li key={stat.id} className="min-w-0">
                   <p className="font-display text-2xl font-semibold text-cream sm:text-3xl">{stat.value}</p>
                   <p className="mt-0.5 text-xs text-cream/75">{stat.label}</p>

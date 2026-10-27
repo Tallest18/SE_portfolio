@@ -23,7 +23,7 @@ export function Contact({ contact, site }: { contact: ContactContent; site: Site
     { href: site.links.linkedin, label: "LinkedIn", Icon: Linkedin },
     { href: site.links.playstore, label: "Google Play", Icon: Play },
     { href: site.links.portfolio, label: "Portfolio", Icon: Globe },
-    { href: site.resumeUrl, label: "Résumé", Icon: FileText }
+    { href: site.resumeUrl || "/resume", label: "Résumé", Icon: FileText }
   ].filter((p) => p.href);
 
   return (
