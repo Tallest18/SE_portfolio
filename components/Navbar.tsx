@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Box, Mail, Square, X } from "lucide-react";
+import { Box, FileText, Mail, Square, X } from "lucide-react";
 import type { SiteInfo } from "@/lib/types";
 import { STATIONS } from "@/lib/world/layout";
 import { toggle3D, useWorld } from "@/lib/world/store";
@@ -32,7 +32,7 @@ const itemVariants = {
   exit: { opacity: 0, x: 16, transition: { duration: 0.2 } }
 };
 
-export function Navbar({ site }: { site: SiteInfo }) {
+export function Navbar({ site, resumeHref }: { site: SiteInfo; resumeHref: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const station = useWorld((s) => s.station);
@@ -109,13 +109,25 @@ export function Navbar({ site }: { site: SiteInfo }) {
             );
           })}
         </ul>
-        <a
-          href={`mailto:${site.email}`}
-          className="hidden items-center gap-2 rounded-full border border-copper-light/60 px-3.5 py-1.5 font-mono text-xs text-cream transition-colors hover:bg-copper hover:text-cream md:inline-flex"
-        >
-          <Mail size={13} aria-hidden="true" />
-          say hi
-        </a>
+        <div className="hidden items-center gap-4 md:flex">
+          <a
+            href={resumeHref}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-1.5 font-mono text-xs text-mist transition-colors hover:text-cream lg:inline-flex"
+          >
+            <FileText size={13} aria-hidden="true" />
+            résumé
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
+          <a
+            href={`mailto:${site.email}`}
+            className="inline-flex items-center gap-2 rounded-full border border-copper-light/60 px-3.5 py-1.5 font-mono text-xs text-cream transition-colors hover:bg-copper hover:text-cream"
+          >
+            <Mail size={13} aria-hidden="true" />
+            say hi
+          </a>
+        </div>
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
@@ -229,6 +241,17 @@ export function Navbar({ site }: { site: SiteInfo }) {
                 >
                   <Mail size={14} />
                   say hi
+                </a>
+                <a
+                  href={resumeHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="inline-flex items-center gap-2 self-start font-mono text-xs text-mist transition-colors hover:text-cream"
+                >
+                  <FileText size={14} />
+                  view résumé
+                  <span className="sr-only">(opens in a new tab)</span>
                 </a>
               </motion.div>
             </motion.div>

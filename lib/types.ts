@@ -74,7 +74,12 @@ export interface ProjectItem {
   description: string;
   stack: string[];
   highlights: string[];
+  /** Primary link: Google Play listing or website. */
   link: string;
+  /** What I did on it, e.g. "Built the vendor app". */
+  role?: string;
+  /** Apple App Store listing, shown alongside `link`. */
+  appStore?: string;
 }
 
 export interface ProjectsContent {

@@ -24,7 +24,7 @@
       "Fintech mobile engineer"
     ],
     "headline": "I'm Blessing, and I build mobile and web apps.",
-    "subheadline": "Mostly React Native and Flutter, plus React, Next.js and the Node.js APIs behind them. Right now I build Rolla Pay, a cross-border payments app, and work on Varsigram and the Local Eats Africa customer and vendor apps.",
+    "subheadline": "Mostly React Native and Flutter, plus React, Next.js and the Node.js APIs behind them. Right now I build Rolla Pay, a cross-border payments app, and the customer and vendor apps at Local Eats Africa.",
     "primaryCta": {
       "label": "See my work",
       "href": "#projects"
@@ -66,9 +66,9 @@
   "about": {
     "heading": "About",
     "paragraphs": [
-      "I started building software for clients in 2023, mostly startups and founders who needed an app or a website and someone to see it through to launch. In 2025 I joined Varsigram and Local Eats Africa, and I've been at both since. In August 2026 I joined Rolla Pay, a fintech company building a cross-border payments platform, and shipped its app to Google Play and the App Store.",
+      "I started building software for clients in 2023, mostly startups and founders who needed an app or a website and someone to see it through to launch. In 2025 I joined Varsigram, where I led the frontend and mobile team until June 2026, and in February 2026 I joined Local Eats Africa, where I still build the customer and vendor apps. In August 2026 I joined Rolla Pay, a fintech company building a cross-border payments platform, and shipped its app to Google Play and the App Store.",
       "At Local Eats, more than 150 vendors take orders through the apps I work on. A lot of my time there goes into keeping those apps fast and dependable on slow networks and cheaper Android phones.",
-      "My degree is in automobile technology, from the University of Benin. These days I also teach mobile development at CoderTech, and I've been studying security on the side. I finished Cisco's junior cybersecurity analyst path in 2026 and I'm working toward CompTIA Security+."
+      "My degree is in automobile technology, from the University of Benin. From December 2025 to July 2026 I taught mobile development at CoderTech, and I've been studying security on the side. I finished Cisco's junior cybersecurity analyst path in 2026 and I'm working toward CompTIA Security+."
     ],
     "focusAreas": [
       "Mobile apps in React Native and Flutter",
@@ -149,23 +149,10 @@
         "period": "Aug 2026 – Present",
         "current": true,
         "points": [
-          "Build the Rolla Pay mobile app in React Native and Expo for a cross-border payments platform, and shipped it to Google Play and the App Store.",
-          "Built wallets, deposits, sending money (including CAD by Interac e-Transfer), currency swaps and transaction history.",
-          "Implemented sign-in with Google and Apple, two-factor authentication (email and authenticator app), biometric unlock, and identity verification with document scans and liveness checks.",
-          "Set up push notifications, over-the-air updates, in-app update prompts and in-app support chat."
-        ]
-      },
-      {
-        "id": "varsigram",
-        "role": "Frontend & Mobile Developer",
-        "company": "Varsigram",
-        "location": "Remote",
-        "period": "2025 – Present",
-        "current": true,
-        "points": [
-          "Build features across Varsigram's React and React Native apps, working with product, design and backend to get them shipped.",
-          "Set up the app architecture and the shared components the React and React Native apps are built on.",
-          "Previously led the frontend and mobile team: reviewed code, wrote the team's engineering standards, and mentored developers on TypeScript, architecture and debugging."
+          "Building the Rolla Pay app in React Native, Expo and TypeScript for a cross-border payments platform; shipped it to Google Play and the App Store.",
+          "Built the money flows end to end: multi-currency wallets, deposits, sending money (including CAD by Interac e-Transfer), currency swaps and transaction history.",
+          "Built the security layer: Google and Apple sign-in, two-factor authentication (email and authenticator app), biometric unlock, secure token storage, and KYC identity verification with document scans and liveness checks.",
+          "Own releases on React Native's New Architecture: push notifications, over-the-air updates and in-app update prompts."
         ]
       },
       {
@@ -173,13 +160,14 @@
         "role": "Mobile Developer",
         "company": "Local Eats Africa",
         "location": "Lagos, Nigeria",
-        "period": "2025 – Present",
+        "period": "Feb 2026 – Present",
         "current": true,
         "points": [
-          "Built the customer and vendor apps for a food delivery platform with 150+ vendors: ordering, sign-in, payments and live order tracking.",
+          "Built the customer app (LEA) and the vendor app (LEVA) for a food delivery platform with 150+ vendors, both live on Google Play: ordering, sign-in, Paystack payments and live order tracking.",
           "Brought API latency down by 40% with caching and frontend performance work.",
           "Made product changes based on analytics that raised retention by 20%.",
-          "Tuned the apps for slow networks and low-end Android phones, and helped keep production at 99.9% uptime."
+          "Tuned the apps for slow networks and low-end Android phones, and helped keep production at 99.9% uptime.",
+          "Set up Sentry crash reporting, over-the-air updates and in-app update prompts so fixes reach users without waiting on store review."
         ]
       },
       {
@@ -187,11 +175,25 @@
         "role": "Mobile Development Tutor",
         "company": "CoderTech",
         "location": "Lagos, Nigeria",
-        "period": "Dec 2025 – Present",
-        "current": true,
+        "period": "Dec 2025 – Jul 2026",
+        "current": false,
         "points": [
-          "Teach React Native, Flutter and frontend architecture through project-based courses on auth, APIs, state management and deployment.",
-          "Get students using GitHub the way working teams do: branches, pull requests and code review."
+          "Taught React Native, Flutter and frontend architecture through project-based courses on auth, APIs, state management and deployment.",
+          "Got students using GitHub the way working teams do: branches, pull requests and code review."
+        ]
+      },
+      {
+        "id": "varsigram",
+        "role": "Team Lead, Mobile & Frontend",
+        "company": "Varsigram",
+        "location": "Remote",
+        "period": "2025 – Jun 2026",
+        "current": false,
+        "points": [
+          "Led the frontend and mobile team across several products, working with product, design and backend to get features shipped.",
+          "Set up the app architecture and the shared components the React and React Native apps were built on.",
+          "Built Varsigram's real-time chat microservice in Node.js, TypeScript, Socket.IO and Prisma, with JWT auth and a GitHub Actions pipeline that deploys to staging and production.",
+          "Reviewed code, wrote the team's engineering standards, and mentored developers on TypeScript, architecture and debugging."
         ]
       },
       {
@@ -226,7 +228,9 @@
           "Wallets, Interac deposits, cross-border sends and currency swaps",
           "Google and Apple sign-in, 2FA, biometric unlock and KYC identity checks"
         ],
-        "link": "https://play.google.com/store/apps/details?id=com.RollaMobileAPP"
+        "link": "https://play.google.com/store/apps/details?id=com.RollaMobileAPP",
+        "role": "Mobile engineer: built the app and shipped it to Google Play and the App Store",
+        "appStore": ""
       },
       {
         "id": "ai-ordering",
@@ -258,23 +262,25 @@
           "Tools merchants use to run their store",
           "Inventory and product management"
         ],
-        "link": "https://play.google.com/store/apps/details?id=localeatsafricaVendor.com"
+        "link": ""
       },
       {
         "id": "social",
         "name": "Varsigram",
         "tag": "Social",
-        "description": "A social app with profiles, media posts, notifications and real-time updates. I work on the app and previously led the team behind it.",
+        "description": "A social app with profiles, media posts, notifications and real-time updates. I led the frontend and mobile team behind it.",
         "stack": [
           "React Native",
           "Firebase",
-          "Real-time"
+          "Node.js",
+          "Socket.IO"
         ],
         "highlights": [
           "Real-time interactions and notifications",
           "Shared React Native components used across the app"
         ],
-        "link": "https://play.google.com/store/apps/details?id=com.varsigram.app"
+        "link": "https://play.google.com/store/apps/details?id=com.varsigram.app",
+        "role": "Led the frontend and mobile team"
       },
       {
         "id": "vendor-mgmt",
@@ -282,14 +288,17 @@
         "tag": "Vendor app",
         "description": "The app restaurants and food vendors on Local Eats use to run their store: incoming orders, menus, prices, opening hours and sales.",
         "stack": [
-          "React",
-          "Node.js"
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Sentry"
         ],
         "highlights": [
           "Incoming orders and inventory in one place",
           "Dashboards for sales and store activity"
         ],
-        "link": "https://play.google.com/store/apps/details?id=localeatsafricaVendor.com"
+        "link": "https://play.google.com/store/apps/details?id=localeatsafricaVendor.com",
+        "role": "Built the vendor app"
       },
       {
         "id": "food-delivery",
@@ -298,13 +307,16 @@
         "description": "The customer side of Local Eats: browse vendors, order, pay, and follow the order until it arrives. Built to hold up on slow connections and low-end Android phones.",
         "stack": [
           "React Native",
-          "Node.js"
+          "Expo",
+          "TypeScript",
+          "Paystack"
         ],
         "highlights": [
           "Live order tracking",
           "Payments and order notifications"
         ],
-        "link": ""
+        "link": "https://play.google.com/store/apps/details?id=localeatsafrica.com",
+        "role": "Built the customer app"
       },
       {
         "id": "interactive-web",
@@ -321,7 +333,8 @@
           "Parallax and scroll-driven animation",
           "Content managed in Sanity, SEO-friendly"
         ],
-        "link": "https://50.apostolicfaith.org.uk/"
+        "link": "https://50.apostolicfaith.org.uk/",
+        "role": "Built and deployed the sites"
       }
     ]
   },

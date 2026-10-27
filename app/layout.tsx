@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { getContent } from "@/lib/content";
+import { siteUrl } from "@/lib/profile";
 
 // Fonts are self-hosted (latin subset, variable weight) so dev and build
 // never depend on reaching Google Fonts.
@@ -26,10 +27,25 @@ const mono = localFont({
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getContent();
   const { site } = content;
+  const url = siteUrl(content);
+  const title = `${site.name} ${site.role} — ${site.title}`;
+  const description = content.hero.subheadline;
   return {
-    title: `${site.name} ${site.role} — ${site.title}`,
-    description: content.hero.subheadline,
-    icons: { icon: "/favicon.svg" }
+    // Absolute URLs for link previews; set SITE_URL (or the portfolio link in /admin).
+    ...(url ? { metadataBase: new URL(url), alternates: { canonical: "/" } } : {}),
+    title,
+    description,
+    keywords: [site.title, ...content.hero.roles, ...content.skills.groups.flatMap((g) => g.items)],
+    authors: [{ name: site.name, ...(url ? { url } : {}) }],
+    icons: { icon: "/favicon.svg" },
+    openGraph: {
+      type: "profile",
+      title,
+      description,
+      siteName: `${site.name} — Portfolio`,
+      ...(url ? { url } : {})
+    },
+    twitter: { card: "summary_large_image", title, description }
   };
 }
 

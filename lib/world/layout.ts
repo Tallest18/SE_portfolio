@@ -48,7 +48,8 @@ export const ACCENTS = ["#E2662A", "#4FB3BC", "#D4A74A"] as const;
 export function isPhoneProject(project: ProjectItem): boolean {
   return (
     /react native|flutter|expo|android|ios/i.test(project.stack.join(" ")) ||
-    /play\.google\.com|apps\.apple\.com/i.test(project.link)
+    /play\.google\.com|apps\.apple\.com/i.test(project.link) ||
+    !!project.appStore
   );
 }
 

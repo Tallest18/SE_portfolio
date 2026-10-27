@@ -32,6 +32,12 @@ function ProjectPanel({ project, index, total }: { project: ProjectItem; index: 
         </span>
       </div>
       <h3 className="font-display text-2xl font-semibold text-cream sm:text-3xl">{project.name}</h3>
+      {project.role && (
+        <p className="mt-1.5 text-sm text-signal">
+          <span className="sr-only">My role: </span>
+          {project.role}
+        </p>
+      )}
       <p className="mt-3 text-[15px] leading-relaxed text-cream/80">{project.description}</p>
       {project.highlights.length > 0 && (
         <ul className="mt-5 space-y-2">
@@ -48,17 +54,25 @@ function ProjectPanel({ project, index, total }: { project: ProjectItem; index: 
           <Chip key={s}>{s}</Chip>
         ))}
       </div>
-      {project.link && (
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-          className="group mt-6 inline-flex items-center gap-2 rounded-full bg-copper px-4 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-copper-light"
-        >
-          {linkLabel(project.link)}
-          <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          <span className="sr-only">(opens in a new tab)</span>
-        </a>
+      {(project.link || project.appStore) && (
+        <div className="mt-6 flex flex-wrap gap-2.5">
+          {[project.link, project.appStore].filter(Boolean).map((href, i) => (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className={clsx(
+                "group inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-cream transition-colors",
+                i === 0 ? "bg-copper hover:bg-copper-light" : "border border-cream/25 hover:border-copper-light hover:text-copper-light"
+              )}
+            >
+              {linkLabel(href!)}
+              <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          ))}
+        </div>
       )}
     </>
   );

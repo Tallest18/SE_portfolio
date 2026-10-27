@@ -46,6 +46,13 @@ body {
   }
 }
 
+/* Résumé page: "Download PDF" prints it; keep margins tidy on paper. */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+}
+
 .grid-fade-mask {
   -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
   mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
